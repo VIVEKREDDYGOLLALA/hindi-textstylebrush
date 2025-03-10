@@ -105,7 +105,7 @@ class HindiTextDataset(Dataset):
                     parts = line.strip().split(',')
                     if len(parts) >= 6:
                         img_path = parts[0]
-                        bbox = [int(parts[1]), int(parts[2]), int(parts[3]), int(parts[4])]
+                        bbox = [int(float(parts[1])), int(float(parts[2])), int(float(parts[3])), int(float(parts[4]))]
                         text = parts[5]
                         self.image_paths.append(os.path.join(root_dir, 'images', img_path))
                         self.annotations.append((bbox, text))

@@ -23,18 +23,18 @@ class Config:
     os.makedirs(LOG_DIR, exist_ok=True)
     
     # Training settings
-    BATCH_SIZE = 64
-    NUM_WORKERS = 4
+    BATCH_SIZE = 1
+    NUM_WORKERS = 1
     LEARNING_RATE = 0.002
     BETAS = (0.0, 0.99)
-    NUM_EPOCHS = 200
+    NUM_EPOCHS = 20
     SAVE_INTERVAL = 10
     
     # Model settings
     STYLE_IMAGE_SIZE = 256
     CONTENT_IMAGE_SIZE = (64, 256)
-    STYLE_DIM = 512
-    CONTENT_DIM = 512
+    STYLE_DIM = 64
+    CONTENT_DIM = 64
     
     # Loss weights
     LAMBDA_1 = 1.0      # Perceptual loss
@@ -48,10 +48,17 @@ class Config:
     NUM_SYNTHETIC_FONTS = 2000
     
     # Hindi specific
-    HINDI_CHARS = "अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसहक्षत्रज्ञड़ढ़"
-    HINDI_DIGITS = "०१२३४५६७८९"
-    HINDI_VOWEL_SIGNS = "ािीुूृेैोौंःँ"
-    HINDI_ADDITIONAL_CHARS = "।॥॰"
+    # HINDI_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    # HINDI_DIGITS = "0123456789"
+    # HINDI_VOWEL_SIGNS = "ािीुूृेैोौंःँ"
+    # HINDI_ADDITIONAL_CHARS = "।॥॰"
+    # HINDI_SYMBOLS=".,;:!?'\"()-"
+    ENGLISH_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    ENGLISH_DIGITS = "0123456789"
+    ENGLISH_SYMBOLS = ".,;:!?'\"()-"
     
     # All characters
-    ALL_CHARS = HINDI_CHARS + HINDI_DIGITS + HINDI_VOWEL_SIGNS + HINDI_ADDITIONAL_CHARS
+    ALL_CHARS = ENGLISH_CHARS + ENGLISH_DIGITS + ENGLISH_SYMBOLS
+    
+    # All characters
+    # ALL_CHARS = HINDI_CHARS + HINDI_DIGITS + HINDI_VOWEL_SIGNS + HINDI_ADDITIONAL_CHARS
