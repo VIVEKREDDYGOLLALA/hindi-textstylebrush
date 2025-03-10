@@ -46,7 +46,7 @@ class HindiSynthTextDataset(Dataset):
             font = ImageFont.truetype(font_path, font_size)
             # Estimate text size for the image dimensions
             dummy_draw = ImageDraw.Draw(Image.new('RGB', (1, 1)))
-            text_width, text_height = dummy_draw.textsize(text, font=font)
+            text_width, text_height = dummy_draw.textbbox((0, 0), text, font=font)
             
             # Create image with white background
             img = Image.new('RGB', (text_width + 20, text_height + 20), color=(255, 255, 255))
@@ -126,7 +126,7 @@ class HindiTextDataset(Dataset):
             
             # Calculate text position to center it
             dummy_draw = ImageDraw.Draw(Image.new('L', (1, 1)))
-            text_width, text_height = dummy_draw.textsize(text, font=font)
+            text_width, text_height = dummy_draw.textbbox((0, 0), text, font=font)
             position = ((Config.CONTENT_IMAGE_SIZE[1] - text_width) // 2, (Config.CONTENT_IMAGE_SIZE[0] - text_height) // 2)
             
             # Draw text

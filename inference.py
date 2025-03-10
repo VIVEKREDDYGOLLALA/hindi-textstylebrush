@@ -121,7 +121,7 @@ def render_content_image(text, font_path=None, image_size=(64, 256)):
     
     # Calculate text position to center it
     try:
-        text_width, text_height = draw.textsize(text, font=font)
+        text_width, text_height = draw.textbbox((0, 0), text, font=font)
     except:
         # Fallback for newer Pillow versions
         text_width, text_height = font.getsize(text)
